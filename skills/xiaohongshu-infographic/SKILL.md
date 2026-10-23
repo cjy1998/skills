@@ -68,7 +68,7 @@ AskUserQuestion 每题最多四个选项，不一次塞入八项：
 - assets/render.styles.js：六种扩展风格，统一封面、产品、教程与收尾的主题绘制。
 - assets/index.template.html：预览页，先加载 render.styles.js，再加载 render.js。
 - assets/style-catalog.png：八种风格的封面与内容对照总览。
-- assets/STYLE_ID-cover-preview.png、assets/STYLE_ID-preview.png、assets/STYLE_ID-pair-preview.png：各主题的封面、内容页、并排配对预览，将 STYLE_ID 替换为表中的 ID。
+- assets/STYLE_ID-pair-preview.png：八种风格各一张封面与内容并排预览，将 STYLE_ID 替换为表中的 ID；与总览合计九张，仅用于选型和视觉参考，不参与模板渲染。
 - references/style-guide.md：配色、排版差异、字段与密度约束。
 - scripts/serve.py：本地静态服务与 PNG 接收。
 - scripts/verify_and_pack.py：张数、PNG 尺寸与 ZIP 完整性校验。
