@@ -8,3 +8,8 @@ node_modules/
 .env.*
 *.log
 outputs/
+
+# Node 运行时：字体按需下载、依赖就地安装
+node/fonts/*.ttf
+node/fonts/*.otf
+.xhs-runtime/

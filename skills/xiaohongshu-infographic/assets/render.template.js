@@ -4,7 +4,7 @@ const THEMES={
   tech:{name:'深蓝＋薄荷科技编辑风',paper:'#F1F4F8',ink:'#182B46',muted:'#687B93',accent:'#B5F1D2',signal:'#3469FA',rule:'#DCE4EF',grid:'#E4EAF2',dark:'#13243D',light:'#E7EEFF'},
   ...EXTRA_THEMES
 };
-const fonts={sans:'"PingFang SC", "Hiragino Sans GB", sans-serif',mono:'Menlo, "SFMono-Regular", monospace'};
+const fonts={sans:'"PingFang SC", "Hiragino Sans GB", sans-serif',mono:'Menlo, "SFMono-Regular", "Hiragino Sans GB", monospace'};
 const diagnostics=[],slides=[];
 let C,canvas,ctx;
 
