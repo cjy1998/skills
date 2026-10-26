@@ -1,6 +1,6 @@
 ---
 name: xiaohongshu-infographic
-description: 制作 1080×1440 小红书信息图、轮播图、图解笔记；先让用户从暖白杂志、深蓝科技编辑、瑞士极简、粗线条海报、手账笔记、工程蓝图、暗黑霓虹、复古报刊八种风格中选择，并标明适用内容。支持工具横评、插件推荐、避坑、教程、原理解释及行业观察；同套封面、内容与收尾统一配色、字体和图形语言，使用 Canvas 模板、浏览器导出、质检打包。
+description: 制作 1080×1440 小红书信息图、轮播图、图解笔记；先让用户从暖白杂志、深蓝科技编辑、瑞士极简、粗线条海报、手账笔记、工程蓝图、暗黑霓虹、复古报刊八种风格中选择，并标明适用内容。支持工具横评、插件推荐、避坑、教程、原理解释及行业观察；同套封面、内容与收尾统一配色、字体和图形语言，使用 Canvas 模板、Node 无浏览器导出、质检打包。
 when_to_use: 用户要求小红书配图、轮播图、信息图、图解笔记，或复用已选风格时
 argument-hint: <主题或内容来源，可附风格名称>
 ---
@@ -43,14 +43,24 @@ AskUserQuestion 每题最多四个选项，不一次塞入八项：
 ## 工作流
 
 1. **规划**：选定风格后读 references/style-guide.md，列出封面、内容、收尾主题；通常 5–8 页，每页只讲一个层次，密集材料拆页。
-2. **拷贝**：使用独立素材目录。复制 assets/render.template.js 为 render.js、assets/render.styles.js 保持原名、assets/index.template.html 为 index.html，以及 scripts/serve.py、scripts/verify_and_pack.py。不要覆盖已发布素材或混入旧编号图片。
+2. **拷贝**：使用独立素材目录。复制 assets/render.template.js 为 render.js、assets/render.styles.js 保持原名、assets/index.template.html 为 index.html；有 python3 和浏览器工具时另可复制 scripts/serve.py、scripts/verify_and_pack.py，纯 Node 环境直接用技能自带的 node/ 脚本。不要覆盖已发布素材或混入旧编号图片。
 3. **填写**：仅编辑工作副本 render.js 的 CONTENT 区，将 STYLE_ID 从 null 设为所选 ID。填写 CONTENT.cover、details、closing。模板不提供默认风格；不修改用户级模板来填某篇笔记的具体内容。
 4. **配对检查**：使用资源中的已确认内容风格。新视觉方向、重大改版或全新密集布局，先给一张内容页样稿；确认后补配套封面，成对检查统一性，再扩展整套。不要只确认封面就把后续页做成另一种视觉。
-5. **语法与服务**：检查 node --check render.js 和 node --check render.styles.js。后台启动 python3 serve.py --root <素材目录> --port 8767，保留任务 ID；端口冲突时换端口。本机缺少稳定 Node 路径时使用 load_workspace_dependencies。
-6. **浏览器导出**：browser-use 打开本地预览，用 evaluate_script 执行 async () => await exportAll()。改脚本后先 reload 且 ignoreCache:true。确认返回的 style 与选择一致。
-7. **质检**：window.renderResult.diagnostics 必须为空，console 无错误。Read 每张 PNG 和 contact-sheet.png；逐套核对配色、标题字体、图形语言、中文、页脚、代码、价格条件及遮挡。不靠缩小正文掩盖溢出；精简或拆页后重导。
-8. **打包**：写小红书笔记文案.txt，含标题、逐页导览、避坑、话题、来源及整理日期。运行 python3 verify_and_pack.py --dir <目录> --zip <目录>/小红书发布素材.zip --count <实际页数>，失败则修复。
-9. **交付**：停止本次启动的服务任务，不按名称批量杀进程；提供发布包、总览、文案链接及封面预览。
+5. **语法检查**：执行 node --check render.js 与 node --check render.styles.js。
+6. **导出**：执行 node <技能目录>/node/render.mjs --dir <素材目录>。它在 Node 里跑同一套 exportAll，把 PNG 写入 images/ 并合成 contact-sheet.png；diagnostics 非空、尺寸不符或渲染异常都会以退出码 1 失败并逐条打印。改完 CONTENT 直接重跑，不需要刷新页面。
+7. **可选预览**：需要目视调版且环境有浏览器时，运行 node <技能目录>/node/serve.mjs --root <素材目录>（默认 8767），打开 http://127.0.0.1:8767/；页面按钮同样写入 images/，改脚本后刷新。没有浏览器工具就跳过，用第 6 步产物。
+8. **质检**：读取每张 PNG 与 contact-sheet.png，逐套核对配色、标题字体、图形语言、中文、页脚、代码、价格条件及遮挡；diagnostics 必须为空。不靠缩小正文掩盖溢出；精简或拆页后重导。
+9. **打包**：写小红书笔记文案.txt，含标题、逐页导览、避坑、话题、来源及整理日期。运行 node <技能目录>/node/verify_and_pack.mjs --dir <素材目录> --zip <素材目录>/小红书发布素材.zip --count <实际页数>，失败则修复。
+10. **交付**：如果启动过预览服务，停止该任务（按任务 ID，不按名称批量杀进程）；提供发布包、总览、文案链接及封面预览。
+
+## 运行环境（Node，无需浏览器）
+
+- **首次使用**：运行 node <技能目录>/node/setup.mjs [--prefix <素材目录>/.xhs-runtime] 安装 @napi-rs/canvas 并下载中文字体与等宽字体；已装好的机器可直接渲染。
+- **字体映射**：PingFang SC / Hiragino Sans GB → Noto Sans SC（400/500/700）；Songti SC / STSong → Noto Serif SC Bold；Menlo / SFMono-Regular → JetBrains Mono，中文回退 Noto Sans SC。字面与 macOS 系统字体略有差异，版式仍按同一套 token 计算。
+- **字体不入库**：字体由 setup.mjs 从 jsDelivr 下载并按字节数校验，仓库只保留许可证（node/fonts/LICENSE-Noto.txt、node/fonts/LICENSE-JetBrainsMono.txt，均为 SIL OFL 1.1）。
+- **沙箱**：只允许写工作区时，用 --prefix 装到 <素材目录>/.xhs-runtime；render.mjs 会自动在那里找依赖和字体。也可用 XHS_NODE_MODULES、XHS_FONT_DIR 指定。
+- **原 Python 脚本保留**：有 python3 和浏览器工具时仍可按 serve.py + 浏览器 exportAll 的原流程执行；两种方式产物一致（PNG 尺寸、ZIP 结构）。
+- 细节与排错见 node/README.md。
 
 ## 内容与真实性
 
@@ -70,5 +80,10 @@ AskUserQuestion 每题最多四个选项，不一次塞入八项：
 - assets/style-catalog.png：八种风格的封面与内容对照总览。
 - assets/STYLE_ID-pair-preview.png：八种风格各一张封面与内容并排预览，将 STYLE_ID 替换为表中的 ID；与总览合计九张，仅用于选型和视觉参考，不参与模板渲染。
 - references/style-guide.md：配色、排版差异、字段与密度约束。
-- scripts/serve.py：本地静态服务与 PNG 接收。
-- scripts/verify_and_pack.py：张数、PNG 尺寸与 ZIP 完整性校验。
+- node/render.mjs：无浏览器导出主入口（vm 执行 render.js、调用 exportAll、写出 PNG 与总览）。
+- node/dom-shim.mjs：DOM / Canvas / fetch 适配层。
+- node/serve.mjs：Node 预览服务（serve.py 等价）。
+- node/verify_and_pack.mjs：Node 质检与打包（verify_and_pack.py 等价，不依赖 zip 命令）。
+- node/setup.mjs：首次安装依赖与字体；node/README.md：运行时说明、字体映射与排错。
+- scripts/serve.py：本地静态服务与 PNG 接收（Python / 浏览器环境）。
+- scripts/verify_and_pack.py：张数、PNG 尺寸与 ZIP 完整性校验（Python / 浏览器环境）。

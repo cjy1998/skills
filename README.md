@@ -6,7 +6,7 @@
 
 | 技能 | 用途 | 当前适配情况 |
 |---|---|---|
-| [小红书信息图](skills/xiaohongshu-infographic/SKILL.md) | 制作 1080 × 1440 小红书信息图、轮播图和图解笔记，支持八种风格 | 已在 Qoder/macOS 验证；DSH 和其他 Agent 尚未端到端实测 |
+| [小红书信息图](skills/xiaohongshu-infographic/SKILL.md) | 制作 1080 × 1440 小红书信息图、轮播图和图解笔记，支持八种风格 | 已在 Qoder/macOS 与 DSH（Node 无浏览器导出）验证；其他 Agent 尚未端到端实测 |
 
 ## 小红书信息图
 
@@ -78,7 +78,7 @@
 - DSH 支持文件夹式 `SKILL.md` 技能；文件能够被发现，不代表运行依赖和工具调用已经兼容。
 - 自动导出需要能打开本地预览并执行 JavaScript 的浏览器工具。DSH 桌面的实验性浏览器 MCP 需按其文档启用，不能把普通 Web 界面等同于浏览器自动化。
 - 风格选择交互、运行时路径、后台服务管理、浏览器工具名和参数、图片读取方式需按宿主适配，不照抄 Qoder 本机可执行文件路径。
-- 当前没有 DSH 或其他 Agent 的端到端实测结果，也没有声明最低兼容版本。
+- DSH（Web 端，Node 无浏览器导出）已完成端到端实测：v24 下八种风格各出 3 页、质检打包通过。其他 Agent 尚未实测，也没有声明最低兼容版本。
 
 参考：[DSH 技能机制](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/skill/skill-filesystem/README.md) · [DSH 浏览器能力](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/browser-use.md)。
 
@@ -93,6 +93,7 @@ skills/
         ├── SKILL.md
         ├── assets/
         ├── references/
+        ├── node/
         └── scripts/
 ```
 

@@ -1,0 +1,15 @@
+{
+  "name": "xiaohongshu-infographic-node",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Headless Canvas renderer for the xiaohongshu-infographic skill: no browser, no python3.",
+  "scripts": {
+    "setup": "node setup.mjs",
+    "render": "node render.mjs",
+    "pack": "node verify_and_pack.mjs"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^1.0.13"
+  }
+}
