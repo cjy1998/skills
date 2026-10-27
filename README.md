@@ -7,6 +7,23 @@
 | 技能 | 用途 | 当前适配情况 |
 |---|---|---|
 | [小红书信息图](skills/xiaohongshu-infographic/SKILL.md) | 制作 1080 × 1440 小红书信息图、轮播图和图解笔记，支持八种风格 | 已在 Qoder/macOS 验证；DSH 和其他 Agent 尚未端到端实测 |
+| [竖屏科普视频](skills/create-explainer-video/SKILL.md) | 自然口播、统一音色、动态图解、同步字幕、独立封面及头像关注片尾 | Remotion 模板与媒体脚本在 macOS 验证；MLX 本地识别需 Apple Silicon，其他宿主需适配 |
+
+## 竖屏科普视频
+
+按“审稿 → 单页视觉样稿 → 音色试听 → 跨分镜连续样片 → 获准整片 → 封面/片尾审稿 → 合片验收”分阶段制作，认可样片不自动触发整片。新主题先确认风格和声音，不固定沿用参考配色或音色。
+
+- 附 [Skill 科普最终版参考视频](skills/create-explainer-video/assets/reference/Skill是什么-最终版.mp4)（1080×1920、30 fps、约3分31秒）与 [独立封面](skills/create-explainer-video/assets/reference/Skill是什么-封面.png)。参考片含用户头像，公开上传前另行确认授权。
+- 包含可编辑 Remotion 模板、本地字幕对齐、渲染、全片解码验证与无声片尾无重编码拼接脚本；不包含密钥、个人凭证路径、参考配音原件或模型文件。
+- 需要 Node.js、系统 Chrome/Chromium、FFmpeg/FFprobe；本地识别还需 Python、NumPy、MLX Whisper 与已有模型。安装、下载、收费配音和真人参考声音上传分别授权。
+- 复制整个 `skills/create-explainer-video/` 到 `~/.qoder/skills/create-explainer-video/` 或项目技能目录；目标已存在时先比较或备份，不覆盖自己的修改。重载技能或新开会话后调用 `/create-explainer-video`。
+
+```text
+/create-explainer-video
+把这份资料做成竖屏科普视频，先给口播稿和一张视觉样稿，再让我选音色。
+```
+
+详细流程见 [技能说明](skills/create-explainer-video/SKILL.md)；模板只在独立工作副本使用。参考视频约20.6 MB，安装时一并复制用于观察效果，不会自动发布或调用配音接口。
 
 ## 小红书信息图
 
@@ -89,7 +106,12 @@ skills/
 ├── README.md
 ├── .gitignore
 └── skills/
-    └── xiaohongshu-infographic/
+    ├── xiaohongshu-infographic/
+    │   ├── SKILL.md
+    │   ├── assets/
+    │   ├── references/
+    │   └── scripts/
+    └── create-explainer-video/
         ├── SKILL.md
         ├── assets/
         ├── references/

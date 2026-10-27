@@ -1,0 +1,20 @@
+{
+  "name": "explainer-video-workspace",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "preview": "node scripts/preview.mjs",
+    "render": "node scripts/render.mjs"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.537",
+    "@remotion/cli": "4.0.537",
+    "@remotion/google-fonts": "4.0.537",
+    "@remotion/player": "4.0.537",
+    "@remotion/renderer": "4.0.537",
+    "esbuild": "0.28.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.537"
+  }
+}

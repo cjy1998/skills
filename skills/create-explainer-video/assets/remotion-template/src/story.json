@@ -1,0 +1,20 @@
+[
+  {"id":"01-hook","chapter":0,"label":"从一个熟悉的场景说起","title":["同样的要求，","又说了一遍？"],"visual":"chat","accent":"mint","text":"你有没有遇到过这种情况？让 AI 帮你干活，事情没变多少，要求却得一遍一遍说。"},
+  {"id":"02-repeat","chapter":0,"label":"比如：制作小红书图文","title":["每次换内容，","每次重讲规则。"],"visual":"repeat","accent":"mint","text":"比如做小红书图文，每次都要交代：先整理重点，标题别太长，配色要统一，做好以后还得检查文字有没有挡住。说着说着，你可能就想了：这些要求，能不能整理好，以后直接用？可以，这就是 Skill 很适合解决的一类问题。"},
+  {"id":"03-manual","chapter":1,"label":"01 / SKILL 是什么","title":["给 AI 的","任务操作手册。"],"visual":"manual","accent":"mint","text":"Skill 翻译过来就是技能。放在 AI 工具里，你可以把它理解成一份可以反复使用的任务操作手册。它告诉 AI：遇到什么任务可以用我，应该怎么做，做到什么程度才算合格。"},
+  {"id":"04-prompt","chapter":1,"label":"你可能也想问","title":["这不就是","存了个提示词？"],"visual":"prompt","accent":"mint","text":"你可能会问：这不就是把提示词存起来吗？最简单的 Skill，确实很像一份整理好的提示词。"},
+  {"id":"05-package","chapter":1,"label":"方法和材料，放在一起","title":["不只有要求，","还可以有材料。"],"visual":"package","accent":"mint","text":"但它还可以带上参考资料、设计模板，甚至自动处理文件的脚本。不只是告诉 AI 我要什么，还可以把怎么做和需要用的材料一起准备好。不过，这不代表 AI 被重新训练了，也不保证它以后绝对不会出错。"},
+  {"id":"06-fit","chapter":2,"label":"02 / 什么需求适合","title":["这件事，","你总在重复做吗？"],"visual":"criteria","accent":"coral","text":"那是不是所有需求，都值得做成 Skill？倒也不用。你想想，自己有没有哪件事：隔三差五就要做，而且每次都按差不多的规矩来？"},
+  {"id":"07-cases","chapter":2,"label":"内容在变，方法可以复用","title":["换一份内容，","复用同一套方法。"],"visual":"cases","accent":"coral","text":"比如按固定格式写周报，按团队规范检查代码，或者把不同资料做成统一风格的图文。这些都很适合。因为变的是这次的内容，不怎么变的是处理方法。"},
+  {"id":"08-not-all","chapter":2,"label":"别为了做技能而做技能","title":["只是偶尔一问？","直接问就好。"],"visual":"dinner","accent":"coral","text":"但如果你只是偶尔问一句，今天晚饭吃什么？直接问就行，没必要专门做个技能。"},
+  {"id":"09-tools","chapter":2,"label":"一个很容易混淆的边界","title":["写进操作手册，","不等于拥有工具。"],"visual":"tools","accent":"coral","text":"还有一点容易误会：你在 Skill 里写帮我操作浏览器，不代表它就自动拥有了浏览器。要操作软件、访问数据库，仍然需要相应的工具和权限。手册可以教它怎么做，但不能凭空给它变出工具。"},
+  {"id":"10-start","chapter":3,"label":"03 / 怎么做成 SKILL","title":["先做成一次，","再总结方法。"],"visual":"process","accent":"mint","text":"那自己的 Skill，要怎么做出来？先别急着写文件。拿一个真实任务，跟 AI 配合着做一遍。"},
+  {"id":"11-refine","chapter":3,"label":"把有效的做法留下来","title":["从一份好结果，","倒推一套好流程。"],"visual":"refine","accent":"mint","text":"还是拿图文举例：你觉得标题太长，就改标题；觉得一页太挤，就拆页。等做出一套满意的结果，再回头总结：哪些步骤有效，哪些错误下次要避开？"},
+  {"id":"12-request","chapter":3,"label":"你可以这样对 AI 说","title":["帮我整理成","可复用的 Skill。"],"visual":"request","accent":"mint","text":"这时候，你就可以对 AI 说：帮我把刚才确认的流程和要求，整理成一个可复用的 Skill。哪些是通用规则，哪些只是这次的内容，要分清楚。"},
+  {"id":"13-files","chapter":3,"label":"一个常见的技能目录","title":["一份核心说明，","按需配上材料。"],"visual":"files","accent":"mint","text":"常见的 Skill，核心是一份叫 SKILL 点 MD 的说明文件，再按需要配上模板、资料或者脚本。"},
+  {"id":"14-test","chapter":3,"label":"不用先成为程序员","title":["不一定要写代码，","但一定要测试。"],"visual":"test","accent":"mint","text":"不一定要会写代码，但一定要拿新任务试一试。换一份资料，它还能不能做好？如果换个例子就不行，说明里面可能还藏着只适合上一次任务的条件。"},
+  {"id":"15-install","chapter":4,"label":"04 / 做好以后怎么用","title":["先确认支持，","再安装或导入。"],"visual":"install","accent":"mint","text":"做好以后怎么用？先确认你的 AI 工具支持这类 Skill，再按它的方式安装或导入。"},
+  {"id":"16-use","chapter":4,"label":"明确点名，也可能自动选用","title":["这次，就用","这个技能来做。"],"visual":"invoke","accent":"mint","text":"用的时候，可以直接说：用这个技能，帮我处理这份资料。有些工具也会根据你的需求自动选用。具体怎么触发，要看你用的软件；换个平台，里面用到的工具和脚本也可能需要调整。"},
+  {"id":"17-summary","chapter":4,"label":"把这一句带走","title":["把验证过的方法，","变成可复用技能。"],"visual":"summary","accent":"mint","text":"所以，Skill 没有那么玄乎。它就是把你已经验证过的做事方法，整理下来，让 AI 下次更方便地照着做。"},
+  {"id":"18-question","chapter":4,"label":"你的第一个 SKILL","title":["哪段要求，","你已经说过很多次？"],"visual":"question","accent":"mint","text":"现在想一想：你平时用 AI，哪一段要求已经复制粘贴过好几次了？那件事，可能就是你第一个 Skill 最好的起点。"}
+]
