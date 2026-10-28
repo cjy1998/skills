@@ -47,6 +47,8 @@ description: 制作有统一旁白、动态图解与同步字幕的竖屏科普�
 - references/remotion-production.md：模板字段、渲染命令、系统浏览器/字体约束、验证和拼接。
 - assets/reference/Skill是什么-最终版.mp4：已完成的参考成片，211.367 秒，1080×1920、30 fps，含 4 秒关注片尾。
 - assets/reference/Skill是什么-封面.png：同款独立平台封面，不是视频开场。
+- assets/reference/MCP是什么-关注片尾版.mp4：第二个完整案例，浅色工程图解风格，201.133 秒、6034 帧，含 4 秒关注片尾；说明同一 Skill 可换视觉方向复用流程。
+- assets/reference/MCP是什么-封面.png：MCP 案例独立平台封面。
 - assets/remotion-template/：可编辑的 Remotion 图解、字幕、封面、片尾和预览入口。
 - scripts/align_narration.py：本地识别、完整性核对、连续单轨分镜与字幕清单生成。
 - scripts/render.mjs：复制到工作项目 scripts/ 后按需导出样稿或成片。
