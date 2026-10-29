@@ -13,7 +13,7 @@
 
 按“审稿 → 单页视觉样稿 → 音色试听 → 跨分镜连续样片 → 获准整片 → 封面/片尾审稿 → 合片验收”分阶段制作，认可样片不自动触发整片。新主题先确认风格和声音，不固定沿用参考配色或音色。
 
-- 附 [Skill 科普最终版参考视频](skills/create-explainer-video/assets/reference/Skill是什么-最终版.mp4)（1080×1920、30 fps、约3分31秒）与 [独立封面](skills/create-explainer-video/assets/reference/Skill是什么-封面.png)，以及第二个完整案例 [MCP 科普关注片尾版](skills/create-explainer-video/assets/reference/MCP是什么-关注片尾版.mp4)（约3分21秒、浅色工程图解风）与 [其封面](skills/create-explainer-video/assets/reference/MCP是什么-封面.png)。参考片含用户头像，公开上传前另行确认授权。
+- 附 [AI 记忆科普关注片尾版](skills/create-explainer-video/assets/reference/AI记忆-关注片尾版.mp4)（1080×1920、30 fps、约3分53秒、浅色办公桌图解风）与 [独立封面](skills/create-explainer-video/assets/reference/AI记忆-封面.png)，用工作台、便签、资料柜解释上下文、持久记忆与知识库。参考片含用户头像，另行公开上传前须确认授权。
 - 包含可编辑 Remotion 模板、本地字幕对齐、渲染、全片解码验证与无声片尾无重编码拼接脚本；不包含密钥、个人凭证路径、参考配音原件或模型文件。
 - 需要 Node.js、系统 Chrome/Chromium、FFmpeg/FFprobe；本地识别还需 Python、NumPy、MLX Whisper 与已有模型。安装、下载、收费配音和真人参考声音上传分别授权。
 - 复制整个 `skills/create-explainer-video/` 到 `~/.qoder/skills/create-explainer-video/` 或项目技能目录；目标已存在时先比较或备份，不覆盖自己的修改。重载技能或新开会话后调用 `/create-explainer-video`。
@@ -23,7 +23,7 @@
 把这份资料做成竖屏科普视频，先给口播稿和一张视觉样稿，再让我选音色。
 ```
 
-详细流程见 [技能说明](skills/create-explainer-video/SKILL.md)；模板只在独立工作副本使用。两个参考视频合计约36 MB，安装时一并复制用于观察效果，不会自动发布或调用配音接口。
+详细流程见 [技能说明](skills/create-explainer-video/SKILL.md)；模板只在独立工作副本使用。参考视频与封面合计约14.2 MB，安装时一并复制用于观察效果，不会自动发布或调用配音接口。
 
 ## 小红书信息图
 

@@ -72,14 +72,14 @@ node scripts/render.mjs --target final --output out/final-v1.mp4 --browser "$CHR
 ```bash
 python3 "$SKILL_DIR/scripts/verify_video.py" out/final-v1.mp4 \
   --ffmpeg "$FFMPEG" --ffprobe "$FFPROBE" \
-  --width 1080 --height 1920 --fps 30 --frames 6341 \
+  --width 1080 --height 1920 --fps 30 --frames 6996 \
   --report out/final-check-v1.json
 ```
 
 - 视频位置是必填项；H.264、8bit4:2:0与AAC（或无音轨片尾）会被检查。
 - `--ffmpeg` / `--ffprobe`：默认PATH上的ffmpeg/ffprobe，也可显式给现有可执行路径；Darwin子进程会增加该路径所在动态库目录，不改全局环境。
 - `--width` / `--height` / `--fps`：默认1080/1920/30，其他实际尺寸必须显式提供，不能套参考片参数。
-- `--frames`：可选预期总帧数；6341仅属于参考最终片，新视频取自己清单计算结果。
+- `--frames`：可选预期总帧数；6996仅属于参考最终片，新视频取自己清单计算结果。
 - `--report`：可选新JSON报告，已有文件拒绝覆盖。省略仍打印短校验结果。
 
 完整解码显式使用rawvideo和PCM空输出，适配缺少wrapped_avframe的FFmpeg构建。`yuvj420p`是有效全范围8bit4:2:0，不误报成像素格式错误；检查色彩范围但不强行改已确认画面。
